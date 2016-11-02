@@ -1,0 +1,6 @@
+[submodule "submodules/Anyboard"]
+	path = submodules/Anyboard
+	url = https://github.com/tienqt/Anyboard.git
+[submodule "submodules/evothings-libraries"]
+	path = submodules/evothings-libraries
+	url = https://github.com/evothings/evothings-libraries.git
