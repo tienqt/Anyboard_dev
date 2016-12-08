@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, user-scalable=no
+		initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+		
+		<!-- AnyBoard -->
+		<script src="submodules/Anyboard/anyboard-library/dist/anyboard.js"></script>
+
+		<!-- cordova.js  -->
+		<script src="cordova.js"></script>
+
+		<!-- EvoThings -->
+		<script src="submodules/evothings-libraries/libs/jquery/jquery.js"></script>
+		<script src="submodules/evothings-libraries/libs/evothings/evothings.js"></script>
+		<script src="submodules/evothings-libraries/libs/evothings/util/util.js"></script>
+		<script src="submodules/evothings-libraries/libs/evothings/easyble/easyble.js"></script>
+
+
+		<!-- Drivers -->
+		<script src="submodules/Anyboard/anyboard-library/drivers/discovery.evothings.bluetooth.js"></script>
+		<script src="submodules/Anyboard/anyboard-library/drivers/bean.evothings.bluetooth.js"></script>
+		<script src="submodules/Anyboard/anyboard-library/drivers/rfduino.evothings.bluetooth.js"></script>
+
+		<!-- Bootstrap -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+		<!-- Game js and css -->
+		<link href="02PervasiveDemo/client/02SimpleNetworkDemoStyle.css" rel="stylesheet" type="text/css">
+
+		<title>Quiz game</title>
+
+
+	</head>
+
+	<body>
+	
+	<div class="container" align="center">
+		<div class="" id="game-setup-view">
+			<div class="page-header">
+				<h1>Co-op Quiz Game</h1>
+			</div>
+			<div class="loader"></div>
+			<h1><small id="game-setup-load-msg"></small></h1>
+			<div class="alert hidden" id="game-setup-alert" >
+  				<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+  				<div id="game-setup-error-msg"></div>
+			</div>
+		</div>
+
+		<div class="hidden" id="start-view">
+			<div class="page-header">
+				<h1>Quiz Game</h1>
+			</div>
+			<div>
+				<p>Some game description</p>
+			</div>
+			<input type="text" class="form-control top-buffer" placeholder="Name" id="player-name-txt">
+			<div class="row top-buffer">
+				<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+					<input type="text" class="form-control" placeholder="Game Pin" id="game-pin-txt">
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+					<button type="button" class="btn btn-default" id="join-game-btn">Join Game</button>
+				</div>
+			</div>
+			<button type="button" class="btn btn-default top-buffer" id="create-game-btn">Create new game</button>		
+		</div>
+ 
+		<div id="token-set-up-view" class="hidden"> 
+			<div class="page-header">
+				<h1>Quiz Game<small><br>Token setup</small></h1>
+			</div>
+			<div id="token-list" class="list-group"></div>
+			<div class="loader hidden" id="token-loader"></div>
+			<h1><small id="token-load-msg"></small></h1>
+		</div>
+
+		<div id="create-new-game-view" class="hidden">
+			<div class="page-header">
+				<h1>Quiz Game<small id="game-pin"><br></small></h1>
+			</div>
+			<div id="get-player-name-popup"></div>
+			<div id="players-list" class="list-group"></div>
+			<p id="remote-player-text">Remote player:</p>
+			<button type="button" class="btn btn-default" id="start-game-btn">Start Game</button>
+		</div>
+
+		<div class="hidden" id="board-game-view">
+			<div class="page-header">
+				<h1>Quiz Game <small>Board game</small></h1>
+			</div>
+			<div id="question"></div><br>
+			<img id="my-image" class="img-responsive"><img>
+			<div id="board-game-map" class="map"> </div><br>
+
+			<div class="row">
+				<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+					<input type="text" class="form-control" placeholder="Message" id="board-game-input">
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+					<button type="button" class="btn btn-default" id="board-game-send-btn">Send</button>
+				</div>
+			</div>
+
+			
+		</div>
+
+		<div class="hidden" id="pervasive-game-view">
+			<div class="page-header">
+				<h1>Quiz Game <small>pervasive</small></h1>
+			</div>
+			<div id="pervasive-map" class="map"></div>
+			<button id="photo-button" class="btn btn-default top-buffer">Take a picture</button>
+		</div>
+	</div>
+
+	</body>
+
+	<script src="02PervasiveDemo/client/logic.js"></script>
+	<script src="02PervasiveDemo/client/view.js"></script>
+	<script> 
+		logic.initiate(); 
+	</script>
+	<script src="https://maps.googleapis.com/maps/api/js?callback=view.initMaps"></script>
+</html>
