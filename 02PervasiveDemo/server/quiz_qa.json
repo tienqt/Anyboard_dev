@@ -1,0 +1,17 @@
+[
+    {
+        "q": "What color is snow?",
+        "w": "red",
+        "r": "white"
+    },
+    {
+        "q": "How many floors in IT-bygget?",
+        "w": 55,
+        "r": 53
+    },
+    {
+        "q": "Is it cloudy today?",
+        "r": "Yes",
+        "w": "No"
+    }
+]
